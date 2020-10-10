@@ -2,6 +2,8 @@
 
 An AI agent for classic game Snake using a genetic algorithm
 
+![Snake Game](snake.png)
+
 # How to use
 
 First, you'll want to install the required packages: 
