@@ -34,10 +34,18 @@ To allow faster convergence toward better individuals, by default, moves that cr
 
 ## Mutation
 
-Every individual is mutated, as it's the only way an individual can improve. The problem with alleles is that they are dependent on eachother. For example, turning left at a specific time will not always bring you to the same spot - it depends on where the previous actions/alleles have taken you. For that reason, we found it best to only mutate alleles around the time of death.
+Every individual is mutated (100% probability of mutation), as it's the only way an individual can improve (no crossover). The problem with alleles is that they are dependent on eachother. For example, turning left at a specific time will not always bring you to the same spot - it depends on where the previous actions/alleles have taken you. For that reason, we found it best to only mutate alleles around the time of death.
 
 The idea is that the fate of the snake is decided shortly before it dies by trapping itself. If we change the actions taken before death, we can help the snake escape. As the snake grows larger, more moves may be required to untrap itself, so higher-fitness individual will have more alleles mutated before the action just before death. However, this won't allow the snake to optimize how quickly it can get to its current length.
 
 ## Crossover
 
 No crossover is implemented for our algorithm. The reason is that there isn't a good way to combine two individuals since all alleles are completely dependent on one another.
+
+## Selection
+
+We used Tournament selection here. Some rough tests seemed to point towards a tournament size of 7 being optimal.
+
+## Other
+
+The actions/alleles are dependent on the locations of the food, since each generation optimizes based on the amount of food collected. For that reason, food locations are generated using a seeded random number generator. However, there are general strategies in playing the game that don't depend on the location of the food - for example, moving in a zig-zag pattern to reach all available spaces. So, it's not impossible for the algorithm to learn these strategies with completely random food locations.
