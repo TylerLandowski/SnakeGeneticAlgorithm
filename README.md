@@ -46,6 +46,6 @@ No crossover is implemented for our algorithm. The reason is that there isn't a 
 
 We used Tournament selection here. Some rough tests seemed to point towards a tournament size of 7 being optimal.
 
-## Other
+# Other Algorithm Details
 
 The actions/alleles are dependent on the locations of the food, since each generation optimizes based on the amount of food collected. For that reason, food locations are generated using a seeded random number generator. However, there are general strategies in playing the game that don't depend on the location of the food - for example, moving in a zig-zag pattern to reach all available spaces. So, it's not impossible for the algorithm to learn these strategies with completely random food locations.
